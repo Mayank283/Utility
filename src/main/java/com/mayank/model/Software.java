@@ -1,33 +1,61 @@
 package com.mayank.model;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 public class Software {
 
-	private String SoftwareName;
+	/**
+	 * 
+	 */
+	private String softwareName;
 
-	private String SoftwareType;
+	/**
+	 * 
+	 */
+	private String softwareType;
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
-	public boolean equals(Object software) {
-		return true;
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (obj == this) {
+			return true;
+		}
+
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+
+		Software software = (Software) obj;
+
+		return new EqualsBuilder().append(this.getSoftwareName(), software.getSoftwareName())
+				.append(this.getSoftwareType(), software.getSoftwareType()).isEquals();
 	}
 
 	/**
 	 * @return the softwareName
 	 */
 	public String getSoftwareName() {
-		return SoftwareName;
+		return softwareName;
 	}
 
 	/**
 	 * @return the softwareType
 	 */
 	public String getSoftwareType() {
-		return SoftwareType;
+		return softwareType;
 	}
 
 	@Override
 	public int hashCode() {
-		return 0;
+		return new HashCodeBuilder(17, 37).append(softwareName).append(softwareType).toHashCode();
 	}
 
 	/**
@@ -35,7 +63,7 @@ public class Software {
 	 *            the softwareName to set
 	 */
 	public void setSoftwareName(String softwareName) {
-		SoftwareName = softwareName;
+		this.softwareName = softwareName;
 	}
 
 	/**
@@ -43,7 +71,7 @@ public class Software {
 	 *            the softwareType to set
 	 */
 	public void setSoftwareType(String softwareType) {
-		SoftwareType = softwareType;
+		this.softwareType = softwareType;
 	}
 
 	/*
@@ -53,6 +81,6 @@ public class Software {
 	 */
 	@Override
 	public String toString() {
-		return "Software [SoftwareType=" + SoftwareType + ", SoftwareName=" + SoftwareName + "]";
+		return "Software [SoftwareType=" + softwareType + ", SoftwareName=" + softwareName + "]";
 	}
 }

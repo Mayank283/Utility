@@ -6,12 +6,13 @@ import com.mayank.service.ServerInfoService;
 
 public class Application {
 
-	private static final String fileName = "/Users/mayank/eclipse-workspace/Utilty/src/main/java/input";
+	private static final String inputFileName = "/Users/mayank/eclipse-workspace/Utility/src/main/java/input";
+	private static final String outputFileName = "/Users/mayank/eclipse-workspace/Utility/src/main/java/output";
 
-	static ServerInfoService serverInfoService = new ServerInfoService();
+	private static ServerInfoService serverInfoService = new ServerInfoService();
 
 	public static void main(String[] args) throws IOException {
-
-		serverInfoService.populateRepository(fileName);
+		serverInfoService.populateRepository(inputFileName);
+		serverInfoService.getOutdatedServer(outputFileName);
 	}
 }

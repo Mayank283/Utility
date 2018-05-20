@@ -10,8 +10,15 @@ import com.mayank.model.Software;
 
 public class ServerRepository {
 
+	/**
+	 * 
+	 */
 	private Map<Software, List<Server>> softMap = new HashMap<>();
 
+	/**
+	 * @param software
+	 * @param server
+	 */
 	public void addToRepo(Software software, Server server) {
 		if (this.softMap.get(software) == null) {
 			List<Server> list = new ArrayList<>();
